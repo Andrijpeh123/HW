@@ -4,6 +4,29 @@ import tkinter.colorchooser
 def color():
     rgb_color, web_color = tkinter.colorchooser.askcolor(parent=root, initialcolor=(255, 0, 0))
     color_entry.config(bg=web_color)
+def show_results():
+    car_type = car_type_var.get()
+    age = age_var.get()
+    brand = brand_var.get()
+    engine = engine_var.get()
+    continent = continent_var.get()
+    engine_type = engine_type_var.get()
+    color = color_entry.cget("bg")
+    car_type_text = "Новий автомобіль" if car_type == 1 else "Іноземного виробництва" if car_type == 2 else ""
+    age_text = {1: "До 5 років", 2: "6-10 років", 3: "11-15 років", 4: "Більше 15 років"}.get(age, "")
+    brand_text = brand if brand != "" else ""
+    engine_text = {1: "Менше 1200", 2: "1200-1500", 3: "1501-2200", 4: "Більше 2200"}.get(engine, "")
+    continent_text = continent if continent != "" else ""
+    engine_type_text = engine_type if engine_type != "" else ""
+    color_text = color if color != "" else ""
+    result = f"Тип автомобіля: {car_type_text}\n" \
+             f"Вік автомобіля: {age_text}\n" \
+             f"Марка автомобіля: {brand_text}\n" \
+             f"Об'єм двигуна: {engine_text}\n" \
+             f"Континент виробника: {continent_text}\n" \
+             f"Вид двигуна: {engine_type_text}\n" \
+             f"Колір: {color_text}"
+    result_label.config(text=result)
 
 root = tk.Tk()
 root.title("Опитування про автомобіль")
