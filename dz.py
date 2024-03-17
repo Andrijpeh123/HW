@@ -27,7 +27,15 @@ def show_results():
              f"Вид двигуна: {engine_type_text}\n" \
              f"Колір: {color_text}"
     result_label.config(text=result)
-
+def clear_selection():
+    car_type_var.set(0)
+    age_var.set(0)
+    brand_var.set("")
+    engine_var.set(0)
+    continent_var.set("")
+    engine_type_var.set("")
+    color_entry.config(bg="#000000")
+    root.configure(background='white')
 root = tk.Tk()
 root.title("Опитування про автомобіль")
 data_frame = ttk.LabelFrame(root, text="Введіть попередні дані про автомобіль")
